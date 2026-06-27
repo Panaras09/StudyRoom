@@ -1,3 +1,11 @@
+/**
+ * Service που περιέχει τη λογική διαχείρισης χρηστών.
+ *
+ * Χρησιμοποιείται για εγγραφή νέων φοιτητών, αναζήτηση χρηστών με βάση το
+ * username και ανάκτηση του συνδεδεμένου χρήστη. Συνεργάζεται με το
+ * UserRepository και το PasswordEncoder για την αποθήκευση ασφαλών κωδικών.
+ */
+
 package gr.studyrooms.service;
 
 import gr.studyrooms.domain.Role;

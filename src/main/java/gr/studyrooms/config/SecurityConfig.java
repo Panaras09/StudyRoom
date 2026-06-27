@@ -1,3 +1,13 @@
+/**
+ * Κεντρική ρύθμιση ασφάλειας για την εφαρμογή StudyRooms.
+ *
+ * Ορίζει τους κανόνες πρόσβασης για το web UI και το REST API.
+ * Το web UI χρησιμοποιεί form login με session cookie, ενώ το API χρησιμοποιεί
+ * stateless JWT Bearer authentication. Επίσης ορίζει το password encoder και τα
+ * JWT encoder/decoder beans που χρειάζονται για το authentication.
+ */
+
+
 package gr.studyrooms.config;
 
 import com.nimbusds.jose.jwk.source.ImmutableSecret;

@@ -1,3 +1,12 @@
+/**
+ * REST controller για τις λειτουργίες κρατήσεων.
+ *
+ * Παρέχει JSON API endpoints για δημιουργία κράτησης, προβολή ιστορικού κρατήσεων,
+ * ακύρωση κράτησης από φοιτητή και διαχείριση κρατήσεων από προσωπικό βιβλιοθήκης.
+ * Χρησιμοποιείται από εξωτερικούς clients που καταναλώνουν το REST API.
+ */
+
+
 package gr.studyrooms.controller;
 
 import gr.studyrooms.domain.Reservation;

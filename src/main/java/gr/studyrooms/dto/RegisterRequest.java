@@ -1,3 +1,10 @@
+/**
+ * DTO για αίτημα εγγραφής νέου χρήστη.
+ *
+ * Μεταφέρει τα στοιχεία που χρειάζονται για τη δημιουργία νέου φοιτητή,
+ * όπως username, password και βασικές πληροφορίες προφίλ.
+ */
+
 package gr.studyrooms.dto;
 
 import jakarta.validation.constraints.Email;

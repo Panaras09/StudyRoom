@@ -1,3 +1,12 @@
+/**
+ * Repository για την πρόσβαση στα δεδομένα των χρηστών.
+ *
+ * Παρέχει μεθόδους αναζήτησης χρηστών, κυρίως με βάση το username.
+ * Χρησιμοποιείται από το authentication, το registration και τις λειτουργίες
+ * που χρειάζονται τον τρέχοντα συνδεδεμένο χρήστη.
+ */
+
+
 package gr.studyrooms.repository;
 
 import gr.studyrooms.domain.UserEntity;

@@ -1,3 +1,11 @@
+/**
+ * Service που φορτώνει χρήστες από τη βάση για το Spring Security.
+ *
+ * Χρησιμοποιείται κατά το login για να βρεθεί ο χρήστης με βάση το username
+ * και να επιστραφούν τα στοιχεία του, όπως password και ρόλος. Έτσι το Spring
+ * Security μπορεί να κάνει authentication και authorization με δεδομένα από τη βάση.
+ */
+
 package gr.studyrooms.security;
 
 import gr.studyrooms.repository.UserRepository;

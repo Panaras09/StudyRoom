@@ -1,3 +1,13 @@
+
+/**
+ * MVC controller για το web UI της εφαρμογής.
+ *
+ * Διαχειρίζεται τις σελίδες που εμφανίζονται στον browser, όπως login, εγγραφή,
+ * λίστα χώρων, φόρμα κράτησης, ιστορικό κρατήσεων φοιτητή και σελίδες διαχείρισης
+ * προσωπικού βιβλιοθήκης. Επιστρέφει Thymeleaf views αντί για JSON responses.
+ */
+
+
 package gr.studyrooms.controller;
 
 import gr.studyrooms.dto.RegisterRequest;

@@ -1,3 +1,11 @@
+/**
+ * REST controller για τους χώρους μελέτης.
+ *
+ * Παρέχει JSON API endpoints για προβολή διαθέσιμων χώρων μελέτης και δημιουργία
+ * νέων χώρων από προσωπικό βιβλιοθήκης. Επιτρέπει σε εξωτερικά συστήματα ή CLI
+ * clients να διαβάζουν και να διαχειρίζονται χώρους χωρίς χρήση του Thymeleaf UI.
+ */
+
 package gr.studyrooms.controller;
 
 import gr.studyrooms.domain.StudyRoom;

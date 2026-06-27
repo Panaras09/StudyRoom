@@ -1,3 +1,11 @@
+/**
+ * Service για τη δημιουργία JWT tokens.
+ *
+ * Δημιουργεί signed JWT access tokens για API clients μετά από επιτυχημένο
+ * authentication. Το token περιέχει το username και τον ρόλο του χρήστη, ώστε
+ * τα προστατευμένα REST API endpoints να μπορούν να ελέγχουν τα δικαιώματα πρόσβασης.
+ */
+
 package gr.studyrooms.security;
 
 import org.springframework.beans.factory.annotation.Value;

@@ -1,3 +1,13 @@
+/**
+ * REST controller για τις λειτουργίες αυθεντικοποίησης.
+ *
+ * Παρέχει endpoints για δημιουργία JWT token και εγγραφή χρήστη μέσω JSON requests.
+ * Χρησιμοποιείται από API clients που θέλουν να συνδεθούν χωρίς να χρησιμοποιήσουν
+ * τη φόρμα login του web UI.
+ */
+
+
+
 package gr.studyrooms.controller;
 
 import gr.studyrooms.dto.AuthRequest;
