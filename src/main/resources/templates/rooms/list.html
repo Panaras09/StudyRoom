@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Χώροι</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<nav>
+    <a th:href="@{/}">StudyRooms</a>
+    <a th:href="@{/rooms}">Χώροι</a>
+
+    <a th:if="${isStudent}" th:href="@{/reservations/my}">Οι κρατήσεις μου</a>
+    <a th:if="${isStudent}" th:href="@{/reservations/new}">Νέα κράτηση</a>
+
+    <a th:if="${isStaff}" th:href="@{/staff/rooms}">Διαχείριση χώρων</a>
+    <a th:if="${isStaff}" th:href="@{/staff/reservations}">Διαχείριση κρατήσεων</a>
+    <a th:if="${isStaff}" th:href="@{/staff/statistics}">Στατιστικά</a>
+
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">Logout</button>
+    </form>
+</nav>
+
+<main>
+    <h1>Χώροι μελέτης</h1>
+
+    <table>
+        <tr>
+            <th>Όνομα</th>
+            <th>Τοποθεσία</th>
+            <th>Χωρητικότητα</th>
+            <th>Ωράριο</th>
+            <th th:if="${isStudent}"></th>
+        </tr>
+
+        <tr th:each="room : ${rooms}">
+            <td th:text="${room.name}">Room A</td>
+            <td th:text="${room.location}">Central Library</td>
+            <td th:text="${room.capacity}">4</td>
+            <td th:text="${room.opensAt + ' - ' + room.closesAt}">08:00 - 20:00</td>
+            <td th:if="${isStudent}">
+                <a th:href="@{/reservations/new(roomId=${room.id})}">Κράτηση</a>
+            </td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

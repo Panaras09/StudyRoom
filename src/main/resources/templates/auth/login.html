@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Login</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body>
+<nav><a th:href="@{/}">StudyRooms</a><a th:href="@{/register}">Εγγραφή</a></nav>
+<main>
+    <h1>Login</h1>
+    <p th:if="${param.registered}">Η εγγραφή ολοκληρώθηκε. Κάνε login.</p>
+    <p th:if="${param.error}" class="error">Λάθος username ή password.</p>
+    <form method="post" th:action="@{/login}">
+        <label>Username <input name="username" required></label>
+        <label>Password <input type="password" name="password" required></label>
+        <button type="submit">Login</button>
+    </form>
+    <p>Demo student: student / student123</p>
+    <p>Demo staff: staff / staff123</p>
+</main>
+</body>
+</html>

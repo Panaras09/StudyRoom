@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Διαχείριση κρατήσεων</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<nav>
+    <a th:href="@{/rooms}">Χώροι</a>
+    <a th:href="@{/staff/rooms}">Διαχείριση χώρων</a>
+    <a th:href="@{/staff/reservations}">Διαχείριση κρατήσεων</a>
+    <a th:href="@{/staff/statistics}">Στατιστικά</a>
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">Logout</button>
+    </form>
+</nav>
+
+<main>
+    <h1>Διαχείριση κρατήσεων</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Φοιτητής</th>
+            <th>Χώρος</th>
+            <th>Έναρξη</th>
+            <th>Λήξη</th>
+            <th>Κατάσταση</th>
+            <th>Λόγος ακύρωσης</th>
+            <th></th>
+        </tr>
+
+        <tr th:each="r : ${reservations}">
+            <td th:text="${r.id}">1</td>
+            <td th:text="${r.student.fullName + ' (' + r.student.username + ')'}">Student</td>
+            <td th:text="${r.room.name}">Room A</td>
+            <td th:text="${r.startsAt}">2026-06-30T10:00</td>
+            <td th:text="${r.endsAt}">2026-06-30T11:00</td>
+            <td th:text="${r.status}">ACTIVE</td>
+            <td th:text="${r.cancellationReason}"></td>
+            <td>
+                <form th:if="${r.status.name() == 'ACTIVE'}" method="post" th:action="@{/staff/reservations/{id}/cancel(id=${r.id})}">
+                    <input name="reason" placeholder="Λόγος ακύρωσης">
+                    <button type="submit">Ακύρωση</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

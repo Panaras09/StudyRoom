@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Νέα κράτηση</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body>
+<nav><a th:href="@{/rooms}">Χώροι</a><a th:href="@{/reservations/my}">Οι κρατήσεις μου</a></nav>
+<main>
+    <h1>Νέα κράτηση</h1>
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+    <form method="post" th:action="@{/reservations}" th:object="${reservationRequest}">
+        <label>Χώρος
+            <select th:field="*{roomId}" required>
+                <option th:each="room : ${rooms}" th:value="${room.id}" th:text="${room.name + ' (' + room.location + ')'}"></option>
+            </select>
+        </label>
+        <label>Έναρξη <input type="datetime-local" th:field="*{startsAt}" required></label>
+        <label>Λήξη <input type="datetime-local" th:field="*{endsAt}" required></label>
+        <button type="submit">Δημιουργία κράτησης</button>
+    </form>
+</main>
+</body>
+</html>

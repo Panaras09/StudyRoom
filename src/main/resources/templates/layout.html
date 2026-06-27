@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title} ?: 'StudyRooms'">StudyRooms</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<nav>
+    <a th:href="@{/}">StudyRooms</a>
+    <a th:href="@{/rooms}">Χώροι</a>
+    <a th:href="@{/reservations/new}">Νέα κράτηση</a>
+    <a th:href="@{/reservations/my}">Οι κρατήσεις μου</a>
+    <a th:href="@{/staff/rooms}">Staff χώροι</a>
+    <a th:href="@{/staff/statistics}">Στατιστικά</a>
+    <a th:href="@{/login}">Login</a>
+    <form th:action="@{/logout}" method="post"><button type="submit">Logout</button></form>
+</nav>
+<main th:fragment="content"><p>Content</p></main>
+</body>
+</html>

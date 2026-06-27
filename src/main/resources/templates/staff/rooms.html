@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Διαχείριση χώρων</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<nav>
+    <a th:href="@{/rooms}">Χώροι</a>
+    <a th:href="@{/staff/rooms}">Διαχείριση χώρων</a>
+    <a th:href="@{/staff/reservations}">Διαχείριση κρατήσεων</a>
+    <a th:href="@{/staff/statistics}">Στατιστικά</a>
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">Logout</button>
+    </form>
+</nav>
+
+<main>
+    <h1>Διαχείριση χώρων μελέτης</h1>
+
+    <section class="card">
+        <h2>Προσθήκη νέου χώρου</h2>
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+
+        <form method="post" th:action="@{/staff/rooms}" th:object="${roomRequest}">
+            <label>Όνομα <input th:field="*{name}" required></label>
+            <label>Τοποθεσία <input th:field="*{location}" required></label>
+            <label>Χωρητικότητα <input type="number" th:field="*{capacity}" min="1" required></label>
+            <label>Άνοιγμα <input type="time" th:field="*{opensAt}" required></label>
+            <label>Κλείσιμο <input type="time" th:field="*{closesAt}" required></label>
+            <label>Ενεργός <input type="checkbox" th:field="*{active}"></label>
+            <button type="submit">Προσθήκη</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Υπάρχοντες χώροι</h2>
+        <table>
+            <tr>
+                <th>Όνομα</th>
+                <th>Τοποθεσία</th>
+                <th>Χωρητικότητα</th>
+                <th>Ωράριο</th>
+                <th>Ενεργός</th>
+            </tr>
+
+            <tr th:each="room : ${rooms}">
+                <td th:text="${room.name}">Room A</td>
+                <td th:text="${room.location}">Central Library</td>
+                <td th:text="${room.capacity}">4</td>
+                <td th:text="${room.opensAt + ' - ' + room.closesAt}">08:00 - 20:00</td>
+                <td th:text="${room.active}">true</td>
+            </tr>
+        </table>
+    </section>
+</main>
+</body>
+</html>

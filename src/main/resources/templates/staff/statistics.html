@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Στατιστικά</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<nav>
+    <a th:href="@{/rooms}">Χώροι</a>
+    <a th:href="@{/staff/rooms}">Διαχείριση χώρων</a>
+    <a th:href="@{/staff/reservations}">Διαχείριση κρατήσεων</a>
+    <a th:href="@{/staff/statistics}">Στατιστικά</a>
+    <form th:action="@{/logout}" method="post" style="display:inline;">
+        <button type="submit">Logout</button>
+    </form>
+</nav>
+
+<main>
+    <h1>Στατιστικά πληρότητας</h1>
+
+    <form method="get" th:action="@{/staff/statistics}">
+        <label>Από <input type="date" name="from" th:value="${from}"></label>
+        <label>Έως <input type="date" name="to" th:value="${to}"></label>
+        <button type="submit">Προβολή</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Χώρος</th>
+            <th>Κρατήσεις</th>
+        </tr>
+        <tr th:each="entry : ${stats}">
+            <td th:text="${entry.key}">Room A</td>
+            <td th:text="${entry.value}">0</td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

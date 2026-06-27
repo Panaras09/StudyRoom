@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Κρατήσεις</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body>
+<nav><a th:href="@{/rooms}">Χώροι</a><a th:href="@{/reservations/new}">Νέα κράτηση</a></nav>
+<main>
+    <h1>Οι κρατήσεις μου</h1>
+    <table><tr><th>Χώρος</th><th>Έναρξη</th><th>Λήξη</th><th>Κατάσταση</th><th></th></tr>
+        <tr th:each="r : ${reservations}">
+            <td th:text="${r.room.name}"></td><td th:text="${r.startsAt}"></td><td th:text="${r.endsAt}"></td><td th:text="${r.status}"></td>
+            <td><form th:if="${r.status.name() == 'ACTIVE'}" method="post" th:action="@{/reservations/{id}/cancel(id=${r.id})}"><button type="submit">Ακύρωση</button></form></td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>

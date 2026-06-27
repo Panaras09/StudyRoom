@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Εγγραφή</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body>
+<nav><a th:href="@{/}">StudyRooms</a><a th:href="@{/login}">Login</a></nav>
+<main>
+    <h1>Εγγραφή φοιτητή</h1>
+    <p class="error" th:if="${error}" th:text="${error}"></p>
+    <form method="post" th:action="@{/register}" th:object="${registerRequest}">
+        <label>Username <input th:field="*{username}" required></label>
+        <label>Password <input type="password" th:field="*{password}" required></label>
+        <label>Email <input type="email" th:field="*{email}" required></label>
+        <label>Ονοματεπώνυμο <input th:field="*{fullName}" required></label>
+        <button type="submit">Εγγραφή</button>
+    </form>
+</main>
+</body>
+</html>

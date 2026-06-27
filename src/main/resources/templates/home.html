@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="el" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>StudyRooms</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body>
+<nav><a th:href="@{/}">StudyRooms</a><a th:href="@{/rooms}">Χώροι</a><a th:href="@{/register}">Εγγραφή</a><a th:href="@{/login}">Login</a></nav>
+<main>
+    <h1>StudyRooms</h1>
+    <p>Σύστημα κράτησης θέσεων και δωματίων μελέτης για βιβλιοθήκη.</p>
+    <h2>Διαθέσιμοι χώροι</h2>
+    <table><tr><th>Όνομα</th><th>Τοποθεσία</th><th>Χωρητικότητα</th><th>Ωράριο</th></tr>
+        <tr th:each="room : ${rooms}"><td th:text="${room.name}"></td><td th:text="${room.location}"></td><td th:text="${room.capacity}"></td><td th:text="${room.opensAt + ' - ' + room.closesAt}"></td></tr>
+    </table>
+</main>
+</body>
+</html>
